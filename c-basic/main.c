@@ -1,13 +1,54 @@
 #include <stdio.h>
 #define PI 3.14
 
-void main() {
-//    printf("Hello, World!\n");
-    float r, area, circle;
-    printf("\n 请输入数字：");
-    scanf("%f", &r);
-    circle = 2 * PI * r;
-    area = PI * r * r;
-    printf("\n 周长是：%f", circle);
-    printf("\n 面积是：%f", area);
+double str2num(char str[]) {
+    double num = 0;
+    int i = 0;
+    double t = 10;
+    while (str[i] != '\0') {
+        if (str[i] >= '0' && str[i] <= '9') {
+            if (t == 10) {
+                num = num * t + str[i] - 48;
+            } else {
+                num += (str[i] - 48) * t;
+                t *= 0.1;
+            }
+        }
+        if (str[i] == '.') {
+            t = 0.1;
+        }
+        i++;
+    }
+    if (str[0] == '-') {
+        num = 0 - num;
+    }
+    return num;
 }
+
+int main() {
+//    printf("Hello, World!\n");
+
+//    float r, area, circle;
+//    printf("\n 请输入数字：");
+//    scanf("%f", &r);
+//    circle = 2 * PI * r;
+//    area = PI * r * r;
+//    printf("\n 周长是：%f", circle);
+//    printf("\n 面积是：%f", area);
+
+//    int a,b;
+//    a = 123;
+//    b = 1;
+//    printf("%d \n", a+b);
+
+//    double num1, num2;
+//    num1 = 11111111111e2;
+//    num2 = num1 + 10;
+//    printf("%f,%f\n", num1, num2);
+
+    char str[] = "1234.23";
+    double num = str2num(str);
+    printf("%f", num);
+    return 0;
+}
+
