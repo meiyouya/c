@@ -1,4 +1,8 @@
 #include <stdio.h>
+#include <string.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <io.h>
 #define PI 3.14
 
 double str2num(char str[]) {
@@ -25,6 +29,13 @@ double str2num(char str[]) {
     return num;
 }
 
+char* Gets(int maxlength) {
+    int i;
+    staticchar* str;
+    char c;
+    str = (char*)malloc(sizeof(char)*maxlength);
+}
+
 int main() {
 //    printf("Hello, World!\n");
 
@@ -46,9 +57,18 @@ int main() {
 //    num2 = num1 + 10;
 //    printf("%f,%f\n", num1, num2);
 
-    char str[] = "1234.23";
-    double num = str2num(str);
-    printf("%f", num);
+//    char str[] = "1234.23";
+//    double num = str2num(str);
+//    printf("%f", num);
+
+//    putchar('a');
+//    putchar(getchar());
+//    putchar(getchar());
+//    putchar(getchar());
+//    putchar(getchar());
+//    putchar(getchar());
+//    putchar(getchar());
+    puts("12313");
     return 0;
 }
 
