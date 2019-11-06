@@ -31,9 +31,23 @@ double str2num(char str[]) {
 
 char* Gets(int maxlength) {
     int i;
-    staticchar* str;
+    static char* str;
     char c;
     str = (char*)malloc(sizeof(char)*maxlength);
+    if (!str) {
+        perror("memory allocation error!\n");
+        return 0;
+    } else {
+        for (i = 0; i < maxlength; i++) {
+            c = getchar();
+            if (c == '\n') {
+                break;
+            }
+            str[i] = c;
+        }
+        str[i] = '\0';
+        return str;
+    }
 }
 
 int main() {
