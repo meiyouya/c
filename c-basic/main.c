@@ -114,9 +114,22 @@ int main() {
     change_arr(src_arr);
     printf("%d\n", src_arr[0]);     // 输出5*/
 
-    extern int add(int, int);   // 在主调方声明函数
+    /*extern int add(int, int);   // 在主调方声明函数
     int result = add(5, 6); // 调用test.c中的函数
-    printf("%d\n", result);
+    printf("%d\n", result);*/
+
+    // 指针
+    int a = 3;
+    printf("%d\n", a);
+    int *p = &a;    // 声明变量时，*表示该变量是一个指针变量，对变量使用&可以取到该变量的地址
+    printf("%d\n", p);  // 输出变量a的地址值
+    printf("%d\n", *p); // * 对指针变量使用时，意思是指向该指针变量存储的指针的地方，这里 *p和a的意义是一样的
+    int *p2 = &p;   // 将p的地址值赋值给p2
+    printf("%d\n", p2); // 输出p的地址值
+    printf("%d\n", *p2);    // 输出p的值，即a的地址值
+    int *p3 = &*p;  // 将p中存放的地址，即a的地址值赋值给p3
+    printf("%d\n", p3); // 输出a的地址值
+    printf("%d\n", *p3);    // 输出a的值
     return 0;
 }
 
