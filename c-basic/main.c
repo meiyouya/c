@@ -64,6 +64,31 @@ void change_arr(int arr[]) {
     arr[0] = 5;
 }
 
+// 通过指针交换值
+void swap(int *p1, int *p2) {
+    int temp;
+    temp = *p1;
+    *p1 = *p2;
+    *p2 = temp;
+}
+
+// 任意类型指针参数
+void half(void *num, char type) {
+    switch (type) {
+        case 'i':
+            *(int *)num = *(int *)num / 2;
+            break;
+        case 'l':
+            *(long *)num = *(long *)num / 2;
+            break;
+        case 'f':
+            *(float *)num = *(float *)num / 2;
+            break;
+        default:
+            printf("未知类型数据");
+    }
+}
+
 int main() {
 /*    printf("Hello, World!\n");
 
@@ -115,11 +140,11 @@ int main() {
     printf("%d\n", src_arr[0]);     // 输出5*/
 
     /*extern int add(int, int);   // 在主调方声明函数
-    int result = add(5, 6); // 调用test.c中的函数
+    int result = add(5, 6); // 调用test.c中的函数f
     printf("%d\n", result);*/
 
     // 指针
-    int a = 3;
+    /*int a = 3;
     printf("%d\n", a);
     int *p = &a;    // 声明变量时，*表示该变量是一个指针变量，对变量使用&可以取到该变量的地址
     printf("%d\n", p);  // 输出变量a的地址值
@@ -129,7 +154,25 @@ int main() {
     printf("%d\n", *p2);    // 输出p的值，即a的地址值
     int *p3 = &*p;  // 将p中存放的地址，即a的地址值赋值给p3
     printf("%d\n", p3); // 输出a的地址值
-    printf("%d\n", *p3);    // 输出a的值
+    printf("%d\n", *p3);    // 输出a的值*/
+
+    /*int a = 10, b = 20;
+    printf("%d---%d\n", a, b);  // 输出 10---20
+    swap(&a, &b);
+    printf("%d---%d\n", a, b);  // 输出 20---10*/
+
+    int a = 10;
+    long b = 20000;
+    float c = 40.236;
+    printf("%d\n", a);
+    printf("%ld\n", b);
+    printf("%f\n", c);
+    half(&a, 'i');
+    printf("%d\n", a);
+    half(&b, 'l');
+    printf("%ld\n", b);
+    half(&c, 'f');
+    printf("%f\n", c);
     return 0;
 }
 
