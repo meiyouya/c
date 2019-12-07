@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <io.h>
 #include "test.c"
+
 #define PI 3.14
 
 double str2num(char str[]) {
@@ -64,7 +65,7 @@ void change_arr(int arr[]) {
     arr[0] = 5;
 }
 
-// é€šè¿‡æŒ‡é’ˆäº¤æ¢å€¼
+// Í¨¹ıÖ¸Õë½»»»Öµ
 void swap(int *p1, int *p2) {
     int temp;
     temp = *p1;
@@ -72,20 +73,31 @@ void swap(int *p1, int *p2) {
     *p2 = temp;
 }
 
-// ä»»æ„ç±»å‹æŒ‡é’ˆå‚æ•°
+// ÈÎÒâÀàĞÍÖ¸Õë²ÎÊı
 void half(void *num, char type) {
     switch (type) {
         case 'i':
-            *(int *)num = *(int *)num / 2;
+            *(int *) num = *(int *) num / 2;
             break;
         case 'l':
-            *(long *)num = *(long *)num / 2;
+            *(long *) num = *(long *) num / 2;
             break;
         case 'f':
-            *(float *)num = *(float *)num / 2;
+            *(float *) num = *(float *) num / 2;
             break;
         default:
-            printf("æœªçŸ¥ç±»å‹æ•°æ®");
+            printf("Î´ÖªÀàĞÍÊı¾İ");
+    }
+}
+
+// ·­×ªÊı×é
+void reverse(int arr[], int n) {
+    int j, temp;
+    for (int i = 0; i < (n - 1) / 2; i++) {
+        j = n - 1 - i;
+        temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 }
 
@@ -93,12 +105,12 @@ int main() {
 /*    printf("Hello, World!\n");
 
     float r, area, circle;
-    printf("\n è¯·è¾“å…¥æ•°å­—ï¼š");
+    printf("\n ÇëÊäÈëÊı×Ö£º");
     scanf("%f", &r);
     circle = 2 * PI * r;
     area = PI * r * r;
-    printf("\n å‘¨é•¿æ˜¯ï¼š%f", circle);
-    printf("\n é¢ç§¯æ˜¯ï¼š%f", area);
+    printf("\n ÖÜ³¤ÊÇ£º%f", circle);
+    printf("\n Ãæ»ıÊÇ£º%f", area);
 
     int a,b;
     a = 123;
@@ -135,33 +147,33 @@ int main() {
     printf("%c\n", s1[2]);
 
     int src_arr[3] = {1, 3, 5};
-    printf("%d\n", src_arr[0]);     // è¾“å‡º1
+    printf("%d\n", src_arr[0]);     // Êä³ö1
     change_arr(src_arr);
-    printf("%d\n", src_arr[0]);     // è¾“å‡º5*/
+    printf("%d\n", src_arr[0]);     // Êä³ö5*/
 
-    /*extern int add(int, int);   // åœ¨ä¸»è°ƒæ–¹å£°æ˜å‡½æ•°
-    int result = add(5, 6); // è°ƒç”¨test.cä¸­çš„å‡½æ•°f
+    /*extern int add(int, int);   // ÔÚÖ÷µ÷·½ÉùÃ÷º¯Êı
+    int result = add(5, 6); // µ÷ÓÃtest.cÖĞµÄº¯Êıf
     printf("%d\n", result);*/
 
-    // æŒ‡é’ˆ
+    // Ö¸Õë
     /*int a = 3;
     printf("%d\n", a);
-    int *p = &a;    // å£°æ˜å˜é‡æ—¶ï¼Œ*è¡¨ç¤ºè¯¥å˜é‡æ˜¯ä¸€ä¸ªæŒ‡é’ˆå˜é‡ï¼Œå¯¹å˜é‡ä½¿ç”¨&å¯ä»¥å–åˆ°è¯¥å˜é‡çš„åœ°å€
-    printf("%d\n", p);  // è¾“å‡ºå˜é‡açš„åœ°å€å€¼
-    printf("%d\n", *p); // * å¯¹æŒ‡é’ˆå˜é‡ä½¿ç”¨æ—¶ï¼Œæ„æ€æ˜¯æŒ‡å‘è¯¥æŒ‡é’ˆå˜é‡å­˜å‚¨çš„æŒ‡é’ˆçš„åœ°æ–¹ï¼Œè¿™é‡Œ *på’Œaçš„æ„ä¹‰æ˜¯ä¸€æ ·çš„
-    int *p2 = &p;   // å°†pçš„åœ°å€å€¼èµ‹å€¼ç»™p2
-    printf("%d\n", p2); // è¾“å‡ºpçš„åœ°å€å€¼
-    printf("%d\n", *p2);    // è¾“å‡ºpçš„å€¼ï¼Œå³açš„åœ°å€å€¼
-    int *p3 = &*p;  // å°†pä¸­å­˜æ”¾çš„åœ°å€ï¼Œå³açš„åœ°å€å€¼èµ‹å€¼ç»™p3
-    printf("%d\n", p3); // è¾“å‡ºaçš„åœ°å€å€¼
-    printf("%d\n", *p3);    // è¾“å‡ºaçš„å€¼*/
+    int *p = &a;    // ÉùÃ÷±äÁ¿Ê±£¬*±íÊ¾¸Ã±äÁ¿ÊÇÒ»¸öÖ¸Õë±äÁ¿£¬¶Ô±äÁ¿Ê¹ÓÃ&¿ÉÒÔÈ¡µ½¸Ã±äÁ¿µÄµØÖ·
+    printf("%d\n", p);  // Êä³ö±äÁ¿aµÄµØÖ·Öµ
+    printf("%d\n", *p); // * ¶ÔÖ¸Õë±äÁ¿Ê¹ÓÃÊ±£¬ÒâË¼ÊÇÖ¸Ïò¸ÃÖ¸Õë±äÁ¿´æ´¢µÄÖ¸ÕëµÄµØ·½£¬ÕâÀï *pºÍaµÄÒâÒåÊÇÒ»ÑùµÄ
+    int *p2 = &p;   // ½«pµÄµØÖ·Öµ¸³Öµ¸øp2
+    printf("%d\n", p2); // Êä³öpµÄµØÖ·Öµ
+    printf("%d\n", *p2);    // Êä³öpµÄÖµ£¬¼´aµÄµØÖ·Öµ
+    int *p3 = &*p;  // ½«pÖĞ´æ·ÅµÄµØÖ·£¬¼´aµÄµØÖ·Öµ¸³Öµ¸øp3
+    printf("%d\n", p3); // Êä³öaµÄµØÖ·Öµ
+    printf("%d\n", *p3);    // Êä³öaµÄÖµ*/
 
     /*int a = 10, b = 20;
-    printf("%d---%d\n", a, b);  // è¾“å‡º 10---20
+    printf("%d---%d\n", a, b);  // Êä³ö 10---20
     swap(&a, &b);
-    printf("%d---%d\n", a, b);  // è¾“å‡º 20---10*/
+    printf("%d---%d\n", a, b);  // Êä³ö 20---10*/
 
-    int a = 10;
+    /*int a = 10;
     long b = 20000;
     float c = 40.236;
     printf("%d\n", a);
@@ -172,7 +184,30 @@ int main() {
     half(&b, 'l');
     printf("%ld\n", b);
     half(&c, 'f');
-    printf("%f\n", c);
+    printf("%f\n", c);*/
+
+    /*int a[3] = {3, 6, 9,}, *p;
+    p = a;
+    printf("a[0]µÄµØÖ·£º%X, aµÄÖµ£º%X, pµÄÖµ£º%X\n", &a[0], a, p);  // Êä³ö½á¹ûÈı¸öÖµÊÇÒ»ÑùµÄ
+    printf("*aµÄÖµ£º%d£¬*pµÄÖµ£º%d\n", *a, *p);  // Êä³ö½á¹ûÁ½¸öÖµÊÇÒ»ÑùµÄ
+    for (int i = 0; i < 3; i++) {
+        printf("Êı×éaµÄµÚ%d¸öÔªËØµÄµØÖ·ÊÇ£º%X\n", i, (p + i));  // CÓïÑÔÖĞ¹æ¶¨£¬Êı×éµÄÖ¸ÕëpÈç¹ûÖ¸ÏòµÚi¸öÔªËØ£¬ÄÇÃ´p+1¾ÍÖ¸ÏòµÚi+1¸öÔªËØ
+        printf("Êı×éaµÄµÚ%d¸öÔªËØµÄÖµÊÇ£º%X\n", i, *(p + i));
+    }
+    for (int i = 0; i < 3; i++,p++) {
+        printf("Êı×éaµÄµÚ%d¸öÔªËØµÄµØÖ·ÊÇ£º%X\n", i, p);  // CÓïÑÔÖĞ¹æ¶¨£¬Êı×éµÄÖ¸ÕëpÈç¹ûÖ¸ÏòµÚi¸öÔªËØ£¬ÄÇÃ´p+1¾ÍÖ¸ÏòµÚi+1¸öÔªËØ
+        printf("Êı×éaµÄµÚ%d¸öÔªËØµÄÖµÊÇ£º%X\n", i, *p);
+    }*/
+
+    /*int arr[] = {4,7,8,1,3};
+    for (int i = 0; i < 5; i++) {
+        printf("%d ",arr[i]);
+    }
+    reverse(arr, 5);
+    for (int i = 0; i < 5; i++) {
+        printf("%d ",arr[i]);
+    }*/
+
     return 0;
 }
 
