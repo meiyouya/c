@@ -208,6 +208,27 @@ int main() {
         printf("%d ",arr[i]);
     }*/
 
+    // 指针访问多维数组，以二维数组为例
+    int a[3][4] = {1,2,3,4,5,6,7,8,9,10,11,12};
+    // 下面输出的都是a[0][0]的地址值
+    printf("a=%d\n", a);
+    printf("*a=%d\n", *a);
+    printf("a[0]=%d\n", a[0]);
+    printf("&a[0]=%d\n", &a[0]);
+    printf("&a[0][0]=%d\n", &a[0][0]);
+
+    // 下面输出的都是a[1][0]的地址值
+    printf("a+1=%d\n", a+1);
+    printf("*（a+1）=%d\n", *(a+1));
+    printf("a[1]=%d\n", a[1]);
+    printf("&a[1]=%d\n", &a[1]);
+    printf("&a[1][0]=%d\n", &a[1][0]);
+
+    // 使用指针遍历多维数组
+    int *p;
+    for (p = *a; p < *a + 3 * 4; p++) {
+        printf("%d\n", *p);
+    }
     return 0;
 }
 
