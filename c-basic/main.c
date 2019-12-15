@@ -120,6 +120,27 @@ struct student {
     char sex;
 };
 
+struct s {
+
+    char c;
+    int i;
+    float f;
+    double d;
+
+};
+
+union u {
+    char c;
+    int i;
+    float f;
+    double d;
+};
+
+//struct  s {
+//    int i;
+//    int j;
+//};
+
 int main() {
 /*    printf("Hello, World!\n");
 
@@ -287,6 +308,9 @@ int main() {
     /*struct student s = {60, "ÕÔÁù", '1'};
     struct student *p = &s;
     printf("%sµÄ¿¼ÊÔ³É¼¨ÊÇ%.2f\n", (*p).name, (*p).score);*/
+
+    printf("%d,%d,%d,%d\n", sizeof(char), sizeof(int), sizeof(float), sizeof(double));
+    printf("%d,%d", sizeof(struct s), sizeof(union u));
     return 0;
 }
 
