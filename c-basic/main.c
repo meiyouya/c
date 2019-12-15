@@ -101,6 +101,25 @@ void reverse(int arr[], int n) {
     }
 }
 
+// 指针函数
+int * getP() {
+    static str = "this is a string";
+    return &str;
+}
+
+// 函数指针
+int (*func)();
+
+int sum(a, b) {
+    return a + b;
+}
+
+struct student {
+    float score;
+    char name[20];
+    char sex;
+};
+
 int main() {
 /*    printf("Hello, World!\n");
 
@@ -209,7 +228,7 @@ int main() {
     }*/
 
     // 指针访问多维数组，以二维数组为例
-    int a[3][4] = {1,2,3,4,5,6,7,8,9,10,11,12};
+    /*int a[3][4] = {1,2,3,4,5,6,7,8,9,10,11,12};
     // 下面输出的都是a[0][0]的地址值
     printf("a=%d\n", a);
     printf("*a=%d\n", *a);
@@ -228,7 +247,46 @@ int main() {
     int *p;
     for (p = *a; p < *a + 3 * 4; p++) {
         printf("%d\n", *p);
-    }
+    }*/
+
+    // 获取指定位置的值
+    /*int a[3][4] = {1,2,3,4,5,6,7,8,9,10,11,12};
+    int i = 2;
+    int j = 2;
+    int *p = a;
+    printf("%d\n", *(p + i*4 + j));
+    int (*q)[4] = a;    // 将指针的步长设置为第二维的长度，就可以每次加1都跳到第二维的首地址
+    printf("%d", *(q + 1)[0]);*/
+
+    /*printf("%d", getP());
+    func = sum;
+    printf("%d", (*func)(3, 7));*/
+
+    // 操作结构体
+    /*struct student stu1;
+    stu1.score = 85.0;
+    printf("%.2f", stu1.score);*/
+
+    // 定义结构体数组
+    /*struct student boy_student[] = {
+            {80, "张三", '1'},
+            {85, "李四", '0'},
+            {90, "王五", '1'}
+    };
+    for (int i = 0; i < 3; i++) {
+        char *sex;
+        if (boy_student[i].sex == '1') {
+            sex = "男";
+        } else if (boy_student[i].sex == '0') {
+            sex = "女";
+        }
+        printf("%s是一个%s孩子，这次的考试成绩是%.2f\n", boy_student[i].name, sex, boy_student[i].score);
+    }*/
+
+    // 指向结构体的指针
+    /*struct student s = {60, "赵六", '1'};
+    struct student *p = &s;
+    printf("%s的考试成绩是%.2f\n", (*p).name, (*p).score);*/
     return 0;
 }
 
