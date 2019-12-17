@@ -141,6 +141,28 @@ union u {
 //    int j;
 //};
 
+// 定义枚举
+enum Direction {
+    up = 3, down = 1, left, right
+};
+
+enum Color {
+    red, yellow, blue, white, black
+};
+
+// 定义一个自定义的复数类型
+typedef struct {
+    int real, im;
+} complex;
+
+// 计算复数乘积的函数
+complex mul(complex c1, complex c2) {
+    complex c;
+    c.real = c1.real * c2.real - c1.im * c2.im;
+    c.im = c1.real * c2.im + c1.im * c2.real;
+    return c;
+}
+
 int main() {
 /*    printf("Hello, World!\n");
 
@@ -309,8 +331,33 @@ int main() {
     struct student *p = &s;
     printf("%s的考试成绩是%.2f\n", (*p).name, (*p).score);*/
 
-    printf("%d,%d,%d,%d\n", sizeof(char), sizeof(int), sizeof(float), sizeof(double));
-    printf("%d,%d", sizeof(struct s), sizeof(union u));
+    /*printf("%d,%d,%d,%d\n", sizeof(char), sizeof(int), sizeof(float), sizeof(double));
+    printf("%d,%d", sizeof(struct s), sizeof(union u));*/
+
+    // 引用枚举
+    /*printf("%d,%d,%d",up, left, right);
+
+    enum Color a,b,c;
+    int count = 0;
+    for (a = red;a <= black;a++) {
+        for (b = red; b <= black;b++) {
+            if (a != b) {
+                for (c = red; c <= black;c++) {
+                    if (b != c && a != c) {
+                        count++;
+                        printf("%d,%d,%d\n",a,b,c);
+                    }
+                }
+            }
+        }
+    }
+    printf("一共有%d种结果",count);*/
+
+    // 实例化两个复数
+    complex a = {3,4};
+    complex b = {5,6};
+    complex res = mul(a, b);
+    printf("a * b 的结果是：%d + %di", res.real, res.im);
     return 0;
 }
 
