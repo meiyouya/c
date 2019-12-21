@@ -163,6 +163,11 @@ complex mul(complex c1, complex c2) {
     return c;
 }
 
+typedef struct node {
+    int value;
+    struct node *next;
+} LinkList;
+
 int main() {
 /*    printf("Hello, World!\n");
 
@@ -354,10 +359,46 @@ int main() {
     printf("一共有%d种结果",count);*/
 
     // 实例化两个复数
-    complex a = {3,4};
+    /*complex a = {3,4};
     complex b = {5,6};
     complex res = mul(a, b);
-    printf("a * b 的结果是：%d + %di", res.real, res.im);
+    printf("a * b 的结果是：%d + %di", res.real, res.im);*/
+
+    // 动态内存分配
+    /*void *p = malloc(10 * sizeof(int));
+    if (p == NULL) {
+        printf("分配内存失败");
+        exit(1);
+    }
+    int count, *array=(int *)p;
+    // 这里故意在数组中赋值个数超过10个，发现并没有报错，说明该内存区域是动态的
+    for (count = 0; count < 13; count++) {
+        array[count] = count;
+    }
+    for (count = 0; count < 13; count++) {
+        printf("%d ", array[count]);
+    }*/
+
+    /*void *p = calloc(2, 3 * sizeof(int));
+    printf("%d", p);*/
+
+    // 定义链表的各个节点的值
+    LinkList *head, x, y, z;
+    head = &x;
+    x.value = 10;
+    x.next = &y;
+    y.value = 20;
+    y.next = &z;
+    z.value = 30;
+    z.next = NULL;
+
+    // 定义指针p指向链表的头节点，通过指针p去遍历链表
+    LinkList *p = head;
+    while (p != NULL) {
+
+        printf("%d\n", p->value);
+        p = p->next;
+    }
     return 0;
 }
 
