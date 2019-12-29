@@ -168,6 +168,12 @@ typedef struct node {
     struct node *next;
 } LinkList;
 
+struct bitArea {
+    unsigned a: 1;
+    unsigned b: 3;
+    unsigned c: 4;
+};
+
 int main() {
 /*    printf("Hello, World!\n");
 
@@ -383,7 +389,7 @@ int main() {
     printf("%d", p);*/
 
     // 定义链表的各个节点的值
-    LinkList *head, x, y, z;
+    /*LinkList *head, x, y, z;
     head = &x;
     x.value = 10;
     x.next = &y;
@@ -398,7 +404,29 @@ int main() {
 
         printf("%d\n", p->value);
         p = p->next;
-    }
+    }*/
+
+    /*int a = 4, b = 3;
+    // 首先基于以下几点
+    // 1. 自己和自己异或的结果是0
+    // 2. 任何数和0异或结果还是其本身
+    // 3. 任何数和1异或所有位都会被翻转
+    // 4. 异或的结合律：(z ^ y) ^ x = x ^ (y ^ z) = x ^ z ^ y
+    a = a ^ b;
+    b = b ^ a;  // b = b ^ a = b ^ (a ^ b) = b ^ b ^ a = 0 ^ a = a
+    a = a ^ b;  // a = a ^ b = (a ^ b) ^ a = a ^ (b ^ a) = a ^ a ^ b = b
+    printf("%d--%d\n", a, b);*/
+
+    /*int a = 3;
+    int b = a << 2;
+    printf("%d", b);*/
+
+    struct bitArea bit;
+    bit.a = 1;
+    bit.b = 7;
+    bit.c = 15;
+    printf("%d,%d,%d", bit.a, bit.b, bit.c);
+
     return 0;
 }
 
