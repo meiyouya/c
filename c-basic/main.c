@@ -6,6 +6,9 @@
 #include "test.c"
 
 #define PI 3.14
+#define AREA(r) (PI * (r) * (r))
+// 使用 #undef 终止宏定义，在终止命令之后的所有代码均不可使用之前的宏定义
+// #undef PI
 
 double str2num(char str[]) {
     double num = 0;
@@ -421,12 +424,14 @@ int main() {
     int b = a << 2;
     printf("%d", b);*/
 
-    struct bitArea bit;
+    /*struct bitArea bit;
     bit.a = 1;
     bit.b = 7;
     bit.c = 15;
-    printf("%d,%d,%d", bit.a, bit.b, bit.c);
+    printf("%d,%d,%d", bit.a, bit.b, bit.c);*/
 
+    int r = 2;
+    // 如果宏定义中的没有加括号，这种调用方式就得不到正确的结果
+    printf("%f\n", AREA(r + 1));
     return 0;
 }
-
