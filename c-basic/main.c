@@ -4,11 +4,14 @@
 #include <stdlib.h>
 #include <io.h>
 #include "test.c"
+#include "file1.c"
+#include "file2.c"
 
 #define PI 3.14
 #define AREA(r) (PI * (r) * (r))
 // 使用 #undef 终止宏定义，在终止命令之后的所有代码均不可使用之前的宏定义
 // #undef PI
+#define TRUE_FLAG 1
 
 double str2num(char str[]) {
     double num = 0;
@@ -430,8 +433,19 @@ int main() {
     bit.c = 15;
     printf("%d,%d,%d", bit.a, bit.b, bit.c);*/
 
-    int r = 2;
+    /*int r = 2;
     // 如果宏定义中的没有加括号，这种调用方式就得不到正确的结果
-    printf("%f\n", AREA(r + 1));
+    printf("%f\n", AREA(r + 1));*/
+
+    /*int x1,x2,x3,min;
+    scanf("%d,%d,%d", &x1, &x2, &x3);
+    min = min2(x1, x2, x3);
+    printf("最小值：%d", min);*/
+
+    #ifdef TRUE_FLAG
+        printf("true");
+    #else
+        printf("false");
+    #endif
     return 0;
 }
