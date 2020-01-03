@@ -442,10 +442,54 @@ int main() {
     min = min2(x1, x2, x3);
     printf("最小值：%d", min);*/
 
-    #ifdef TRUE_FLAG
+    /*#ifdef TRUE_FLAG
         printf("true");
     #else
         printf("false");
-    #endif
+    #endif*/
+
+    // 打开文件
+//    FILE *fp = fopen("E:\\projects\\clion_work\\c\\c-basic\\test.txt", "r+");
+//    if (fp != NULL) {
+        // 字符读
+        // fgetc用于一个字符一个字符的读取，每次调用后文件指针自动向后移动一个字节，即使获取的值没有被保存
+        // 还有一个函数getc，用法和作用与fgetc完全一模一样
+        /*int ch = fgetc(fp);
+        while (ch != EOF) {
+            putchar(ch);
+            ch = fgetc(fp);
+        }*/
+        // 字符写，fputc会从当前指针开始，向后写入字符，所以如果是以写或者读写模式打开，指针默认是在第一个字节，直接写会覆盖原有内容
+        // 写入失败会返回 EOF
+        // 还有一个函数putc，用法和作用与fputc完全一模一样
+        /*printf("请输入要保存的字符串：\n");
+        char c = getchar();
+        while (c != '\n') {
+            fputc(c, fp);
+            c = getchar();
+        }*/
+
+        // 字符串读
+        // 定义一个数组存放读取出的字符串
+//        char str[11];
+        // 读取的时候，最后一位的 '\0' 也会算入一位，所以想要读取10位字符串，长度就要写11
+        // 如果遇到换行或者EOF都会停止读取，即一次最多读取一行
+        /*fgets(str, 11, fp);
+        printf("%s", str);*/
+        // 字符串写
+        /*int i = fputs("111111111", fp);
+        printf("%d", i);*/
+
+        // 格式化读写函数为fscanf和fprintf，他们的用法和scanf与printf一样，区别是前者的对象不是键盘输入而是文件
+        // 数据块读写函数为fread(buffer, size, count, fp)和fwrite(buffer, size, count, fp)
+        // buffer是一个存放输入/输出数据的首地址
+        // size表示数据块的字节数
+        // count表示要读写的数据块块数
+        // fp表示文件指针
+        // getw函数和putw函数每次会读取或者写入一个字（两个字节）
+
+//    }
+    // 关闭文件
+//    fclose(fp);
     return 0;
 }
