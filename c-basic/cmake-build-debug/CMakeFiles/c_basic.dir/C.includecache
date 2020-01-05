@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+E:/projects/clion_work/c/c-basic/file1.c
+
+E:/projects/clion_work/c/c-basic/file2.c
+
+E:/projects/clion_work/c/c-basic/main.c
+stdio.h
+-
+string.h
+-
+conio.h
+-
+stdlib.h
+-
+io.h
+-
+test.c
+E:/projects/clion_work/c/c-basic/test.c
+file1.c
+E:/projects/clion_work/c/c-basic/file1.c
+file2.c
+E:/projects/clion_work/c/c-basic/file2.c
+
+E:/projects/clion_work/c/c-basic/test.c
+
