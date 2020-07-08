@@ -180,6 +180,18 @@ struct bitArea {
     unsigned c: 4;
 };
 
+// 汉诺塔
+long count;
+void hanoi(int num, char a, char b, char c) {
+    if (num == 1) {
+        printf("第%ld次，%c柱---->%c柱\n", ++count, a, c);
+    } else {
+        hanoi(num - 1, a, c, b);
+        printf("第%ld次，%c柱---->%c柱\n", ++count, a, c);
+        hanoi(num - 1, b, a, c);
+    }
+}
+
 int main() {
 /*    printf("Hello, World!\n");
 
@@ -491,5 +503,9 @@ int main() {
 //    }
     // 关闭文件
 //    fclose(fp);
+
+    // 汉诺塔
+    count = 0;
+    hanoi(4, 'A', 'B', 'C');
     return 0;
 }
