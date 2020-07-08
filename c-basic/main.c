@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <string.h>
-#include <conio.h>
+//#include <conio.h>
 #include <stdlib.h>
-#include <io.h>
+//#include <io.h>
 #include "test.c"
 #include "file1.c"
 #include "file2.c"
@@ -109,7 +109,8 @@ void reverse(int arr[], int n) {
 
 // Ö¸Õëº¯Êý
 int * getP() {
-    static str = "this is a string";
+    static str;
+    str = "this is a string";
     return &str;
 }
 
